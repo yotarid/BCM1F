@@ -28,6 +28,9 @@
 #include "EUDAQMonitorCollection.hh"
 #include "ParaMonitorCollection.hh"
 
+//BMC1F Include
+#include "BCM1FMonitorCollection.hh"
+
 #include "OnlineMonWindow.hh"
 //#include "OnlineHistograms.hh"
 #include "SimpleStandardEvent.hh"
@@ -83,6 +86,7 @@ public:
   CorrelationCollection *corrCollection;
   EUDAQMonitorCollection *eudaqCollection;
   ParaMonitorCollection *paraCollection;
+  BCM1FMonitorCollection *bcm1fCollection;
 
   virtual void StartIdleing() {}
   OnlineMonWindow *getOnlineMon() { return onlinemon; }

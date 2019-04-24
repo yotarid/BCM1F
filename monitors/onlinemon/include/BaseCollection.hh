@@ -21,6 +21,10 @@ const unsigned int CORRELATION_COLLECTION_TYPE = 2;
 const unsigned int MONITORPERFORMANCE_COLLECTION_TYPE = 3;
 const unsigned int EUDAQMONITOR_COLLECTION_TYPE = 4;
 const unsigned int PARAMONITOR_COLLECTION_TYPE=5;
+
+const unsigned int BCM1FMONITOR_COLLECTION_TYPE=6;
+
+
 const unsigned int UNKNOWN_COLLECTION_TYPE = 9999;
 
 //!BaseCollection class

@@ -24,6 +24,9 @@ SET(OnlineMon_SOURCES
   src/OnlineMonConfiguration.cc
   src/SimpleStandardEvent.cc
   src/SimpleStandardPlane.cc
+  
+  src/BCM1FMonitorCollection.cc
+  src/BCM1FMonitorHistos.cc
   )
 
 SET(OnlineMon_HEADERS 

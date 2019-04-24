@@ -70,7 +70,9 @@ RootMonitor::RootMonitor(const std::string & runcontrol, const std::string & dat
   eudaqCollection = new EUDAQMonitorCollection();
   paraCollection = new ParaMonitorCollection();
 
-  
+  //BCM1F Include
+  bcm1fCollection = new BCM1FMonitorCollection();  
+
   cout << "--- Done ---"<<endl<<endl;
 
   // put collections into the vector
@@ -80,6 +82,8 @@ RootMonitor::RootMonitor(const std::string & runcontrol, const std::string & dat
   _colls.push_back(eudaqCollection);
   _colls.push_back(paraCollection);
 
+  _colls.push_back(bcm1fCollection);
+
   // set the root Monitor
   if (_offline <= 0) {
     hmCollection->setRootMonitor(this);
@@ -87,6 +91,8 @@ RootMonitor::RootMonitor(const std::string & runcontrol, const std::string & dat
     monCollection->setRootMonitor(this);
     eudaqCollection->setRootMonitor(this);
     paraCollection->setRootMonitor(this);
+
+    bcm1fCollection->setRootMonitor(this);
 
     onlinemon->setCollections(_colls);
   }
