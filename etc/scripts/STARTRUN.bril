@@ -70,6 +70,13 @@ xterm -sb -sl 1000 -geom 80x10-480-900 -T 'VME Producer' -e './VMEProducer.exe -
 sleep 1
 
 ######################################################################
+# ubcm Producer
+###############
+printf '\033[22;33m\t ubcm Producer \033[0m \n'
+xterm -sb -sl 1000 -geom 80x10-480-900 -T 'ubcm Producer' -e './ubcmProducer.exe -r tcp://$HOSTIP:$RCPORT' &
+sleep 1
+
+######################################################################
 # Example Slow Producer
 ###############
 #printf '\033[22;33m\t Example SlowProducer \033[0m \n'

@@ -33,6 +33,33 @@ target_link_libraries(TestProducer.exe       EUDAQ ${ADDITIONAL_LIBRARIES})
 target_link_libraries(TestReader.exe         EUDAQ ${ADDITIONAL_LIBRARIES})
 target_link_libraries(TestRunControl.exe     EUDAQ ${ADDITIONAL_LIBRARIES})
 
+
+
+##########################################################################
+############################# ubcm Producer ##############################
+##########################################################################
+
+# add user include directory for ubcmProducer
+INCLUDE_DIRECTORIES(/afs/cern.ch/user/y/yotarid/BCM1F/ubcm/sw/include)
+INCLUDE_DIRECTORIES(/opt/cactus/include)
+INCLUDE_DIRECTORIES(/usr/include/root)
+# add user lib directory for ubcmProducer
+LINK_DIRECTORIES(/afs/cern.ch/user/y/yotarid/BCM1F/ubcm/sw/lib)
+LINK_DIRECTORIES(/opt/cactus/lib)
+LINK_DIRECTORIES(/usr/lib64/root)
+LINK_DIRECTORIES(/usr/lib64)
+# compile ubcmProducer
+add_executable(ubcmProducer.exe src/ubcmProducer.cxx)
+# link against user lib
+target_link_libraries(ubcmProducer.exe EUDAQ ${ADDITIONAL_LIBRARIES} ubcm pthread ncurses boost_filesystem boost_regex boost_system boost_thread pugixml cactus_uhal_log cactus_uhal_grammars cactus_uhal_uhal)
+
+##########################################################################
+############################### ubcm Reader ##############################
+##########################################################################
+add_executable(ubcmReader.exe  src/ubcmReader.cxx )
+target_link_libraries(ubcmReader.exe EUDAQ ${ADDITIONAL_LIBRARIES})
+
+
 ###############################################################################
 ############################### VME Producer ##################################
 ###############################################################################
@@ -63,7 +90,7 @@ target_link_libraries(VMEReader.exe EUDAQ ${ADDITIONAL_LIBRARIES})
 
 
 
-INSTALL(TARGETS VMEProducer.exe VMEReader.exe ClusterExtractor.exe Converter.exe ExampleProducer.exe ExampleSlowProducer.exe ExampleReader.exe FileChecker.exe IPHCConverter.exe MagicLogBook.exe OptionExample.exe RunListener.exe euDataCollector.exe TestLogCollector.exe TestMonitor.exe TestProducer.exe TestReader.exe TestRunControl.exe
+INSTALL(TARGETS ubcmProducer.exe ubcmReader.exe VMEProducer.exe VMEReader.exe ClusterExtractor.exe Converter.exe ExampleProducer.exe ExampleSlowProducer.exe ExampleReader.exe FileChecker.exe IPHCConverter.exe MagicLogBook.exe OptionExample.exe RunListener.exe euDataCollector.exe TestLogCollector.exe TestMonitor.exe TestProducer.exe TestReader.exe TestRunControl.exe
   EXPORT ${PROJECT_NAME}
   RUNTIME DESTINATION bin COMPONENT MAIN_EXE
   LIBRARY DESTINATION lib COMPONENT MAIN_EXE
